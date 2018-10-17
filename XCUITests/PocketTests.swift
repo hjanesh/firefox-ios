@@ -41,7 +41,7 @@ class PocketTest: BaseTestCase {
         app.buttons["More"].tap()
         waitUntilPageLoad()
         navigator.nowAt(BrowserTab)
-        waitforExistence(app.buttons["Reader View"], timeout: 10)
+        waitforExistence(app.textFields["url"], timeout: 15)
         waitForValueContains(app.textFields["url"], value: "getpocket")
     }
 }

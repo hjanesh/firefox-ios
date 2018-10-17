@@ -25,7 +25,9 @@ extension ScreenGraphTest {
         navigator.userState.url = "https://mozilla.org"
         navigator.performAction(TestActions.LoadURLByTyping)
         // The UserState is mutated in BrowserTab.
+        sleep(1)
         navigator.goto(BrowserTab)
+        navigator.nowAt(BrowserTab)
 
         XCTAssertTrue(navigator.userState.url?.starts(with: "www.mozilla.org") ?? false, "Current url recorded by from the url bar is \(navigator.userState.url ?? "nil")")
     }

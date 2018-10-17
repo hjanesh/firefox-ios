@@ -332,9 +332,10 @@ class ActivityStreamTest: BaseTestCase {
         let pagecontrolButton = TopSiteCellgroup.buttons["Next Page"]
         waitforExistence(pagecontrolButton)
         XCTAssert(pagecontrolButton.exists, "The Page Control button must exist")
-        pagecontrolButton.tap()
-        pagecontrolButton.tap()
         let topSiteCells = TopSiteCellgroup.cells
+        pagecontrolButton.tap()
+        waitforExistence(topSiteCells["wikipedia"])
+        pagecontrolButton.tap()
         waitforExistence(topSiteCells["example"])
         topSiteCells["example"].press(forDuration: 1)
         app.tables["Context Menu"].cells["Remove"].tap()
